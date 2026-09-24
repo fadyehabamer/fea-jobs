@@ -46,7 +46,7 @@
                     <div class="single-popular-post d-flex flex-row"
                     style="border-radius: 10px; color: white; background-color: #333; padding: 10px;">
                         <div class="thumb">
-                            <img href="/job/@job.Slug" src="https://localhost:7211/images/employers/@job.AppUser.UrlAvatar" alt="job image" style="border-radius:5px" width="70" height="70" >
+                            <img href="/job/@job.Slug" src="/images/employers/@job.AppUser.UrlAvatar" alt="job image" style="border-radius:5px" width="70" height="70" >
                             <a class="btns text-uppercase" style="width:100px; text-align:center; border-radius:5px" href="/job/@job.Slug">View job</a>
                         </div>
                         <div class="details">
@@ -100,7 +100,7 @@
                 <div class="col-lg-2 col-md-4 col-sm-6">
                     <div class="single-fcat">
                         <a href="/job?slug=@skill.Slug">
-                            <img height="80" width="80" src="https://localhost:7211/images/skills/@skill.Logo" alt="">
+                            <img height="80" width="80" src="/images/skills/@skill.Logo" alt="@skill.Name">
                         </a>
                         <hr />
                         <a href="/job?slug=@skill.Slug"><h5>@skill.Name</h5></a>
@@ -112,7 +112,7 @@
 </section>
 
 <!-- Start Top Employer -->
-<section class="feature-cat-area pt-100" id="category">
+<section class="feature-cat-area pt-100" id="top-employers">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-30 col-lg-10">
@@ -129,7 +129,7 @@
                 {
                     <div class='col-xs-16 col-3'>
                             <div class="card" style="overflow: hidden;">
-                                <a href="/company/@emp.Slug"><img class="card-img card-img-top" src="https://localhost:7211/images/employers/@emp.UrlAvatar" alt="EMPLOYER IMAGE" height='200' width='150'></a>
+                                <a href="/company/@emp.Slug"><img class="card-img card-img-top" src="/images/employers/@emp.UrlAvatar" alt="EMPLOYER IMAGE" height='200' width='150'></a>
                                 <div class='card-body'>
                                 <a href="/company/@emp.Slug">
                                     <h5 class="text-center" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">@emp.FullName</h5>
