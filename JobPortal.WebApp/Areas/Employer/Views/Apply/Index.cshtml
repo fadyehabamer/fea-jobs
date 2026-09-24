@@ -295,24 +295,24 @@
                                             }
                                             @if (CV.CVStatus == 2)
                                             {
-                                                <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#feedbackModal">Feedback</a>
+                                                <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#feedbackModal-@CV.CVId">Feedback</a>
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-backdrop="static">
+                                                <div class="modal fade" id="feedbackModal-@CV.CVId" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel-@CV.CVId" data-backdrop="static">
                                                     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Provide Feedback</h5>
+                                                                <h5 class="modal-title" id="feedbackModalLabel-@CV.CVId">Provide Feedback</h5>
                                                                 <button type="button" style="background-color:red" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form id="feedbackForm" asp-action="Feedback" asp-route-id="@user.Id" asp-route-CVId="@CV.CVId" enctype="multipart/form-data" method="post">
+                                                                <form id="feedbackForm-@CV.CVId" asp-action="Feedback" asp-route-id="@user.Id" asp-route-CVId="@CV.CVId" enctype="multipart/form-data" method="post">
                                                                     <div class="row">
                                                                         <div class="col-md-8">
                                                                             <div class="form-group">
                                                                                 <label asp-for="@CV.EmployerComment" class="control-label"></label><span class="text-danger">*</span>
-                                                                                <textarea asp-for="@CV.EmployerComment" name="EmployerComment" class="form-control" id="CKEditor" style="height: 450px"></textarea>
+                                                                                <textarea asp-for="@CV.EmployerComment" name="EmployerComment" class="form-control" id="CKEditor-@CV.CVId" style="height: 450px"></textarea>
                                                                                 <span asp-validation-for="@CV.EmployerComment" class="text-danger"></span>
                                                                             </div>
                                                                             <hr />
@@ -349,7 +349,7 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group text-center">
-                                                                            <input style="background-color: forestgreen" type="button" onclick="onFeedback()" value="Feedback" class="btn btn-primary" />
+                                                                            <input style="background-color: forestgreen" type="button" onclick="onFeedback(@CV.CVId)" value="Feedback" class="btn btn-primary" />
                                                                         </div>
                                                                     </div>
                                                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -367,11 +367,11 @@
                                                 <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#viewFeedbackModal-@CV.CVId">View Feedback</a>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="viewFeedbackModal-@CV.CVId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+                                                <div class="modal fade" id="viewFeedbackModal-@CV.CVId" tabindex="-1" role="dialog" aria-labelledby="viewFeedbackModalLabel-@CV.CVId" aria-hidden="true" data-backdrop="static">
                                                     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Employer Feedback</h5>
+                                                                <h5 class="modal-title" id="viewFeedbackModalLabel-@CV.CVId">Employer Feedback</h5>
                                                                 <button type="button" style="background-color:red" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
@@ -444,11 +444,11 @@
                                         <td style="text-align: center">
                                             <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#viewCVModal-@CV.CVId">View CV</a>
                                             <!-- Modal -->
-                                            <div class="modal fade" id="viewCVModal-@CV.CVId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="viewCVModal-@CV.CVId" tabindex="-1" role="dialog" aria-labelledby="viewCVModalLabel-@CV.CVId" aria-hidden="true">
                                                 <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">CV: @CV.UserName</h5>
+                                                            <h5 class="modal-title" id="viewCVModalLabel-@CV.CVId">CV: @CV.UserName</h5>
                                                             <button type="button" style="background-color:red" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
@@ -457,7 +457,7 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <img src="https://localhost:7211/images/cvs/@CV.CVImage" alt="@CV.JobName" style="width: 800px; height: 1000px">
+                                                                        <img src="/images/cvs/@CV.CVImage" alt="@CV.JobName" style="width: 800px; height: 1000px">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -518,14 +518,14 @@
 
     <script>
         $(document).ready(function () {
-            $('#feedbackModal, #viewFeedbackModal').on('show.bs.modal', function () {
+            $('[id^="feedbackModal-"], [id^="viewFeedbackModal-"]').on('show.bs.modal', function () {
                 $('body').addClass('modal-open');
                 $(this).on('click', function (e) {
                     e.stopPropagation();
                 });
             });
 
-            $('#feedbackModal, #viewFeedbackModal').on('hidden.bs.modal', function () {
+            $('[id^="feedbackModal-"], [id^="viewFeedbackModal-"]').on('hidden.bs.modal', function () {
                 $('body').removeClass('modal-open');
             });
         });
@@ -570,7 +570,7 @@
                 }
             })
         }
-        function onFeedback() {
+        function onFeedback(id) {
             Swal.fire({
                 title: 'Provide feedback?',
                 text: "Are you sure to provide this feedback?",
@@ -580,7 +580,7 @@
                 confirmButtonText: 'Confirm'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    $("#feedbackForm").submit();
+                    $("#feedbackForm-" + id).submit();
                     Swal.fire(
                         'Success!',
                         '',
@@ -591,5 +591,9 @@
         }
     </script>
 
-    <script>CKEDITOR.replace('CKEditor');</script>
+    <script>
+        document.querySelectorAll('textarea[id^="CKEditor-"]').forEach(function (el) {
+            CKEDITOR.replace(el.id);
+        });
+    </script>
 }

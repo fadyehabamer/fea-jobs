@@ -8,3 +8,17 @@
 .buy-now .btn-buy-now:hover {
   box-shadow: none;
 }
+/* Keyboard focus indicator. The Colorlib theme (assets/user/css/main.css) sets
+   outline: none/0 on links, buttons and the mobile nav toggle without any
+   replacement, so keyboard users cannot see where focus is. :focus-visible
+   only applies to keyboard focus, so mouse clicks look the same as before. */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[role="link"]:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible,
+#mobile-nav-toggle:focus-visible {
+  outline: 2px solid #1f6fd1 !important;
+  outline-offset: 2px;
+}

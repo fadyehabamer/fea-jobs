@@ -33,11 +33,11 @@ data-assets-path="~/assets/admin/assets"
 <head>
     <meta charset="utf-8" />
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+          content="width=device-width, initial-scale=1.0" />
 
     <title>Employer</title>
 
-    <meta name="description" content="" />
+    <meta name="description" content="FEA Jobs employer dashboard for posting jobs, reviewing applications and publishing blog posts." />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="~/assets/admin/assets/img/favicon/favicon.ico" />
@@ -66,11 +66,10 @@ data-assets-path="~/assets/admin/assets"
     <script src="~/assets/admin/assets/vendor/js/helpers.js"></script>
 
     <!-- Tick box-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
-    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css" integrity="sha384-f5WZ52GVqVutFWISVxA0svhX9lHI8wYy/mWPYf5ddY/i1aKpNa98/HhY8SLR2Mvn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/js/multi-select-tag.js" integrity="sha384-I5WK/lBDsCCRACLLKijhz5KdPRotOpy1ABlfCB0aVK6qVGFA31G0i9XjXvIlAFsa" crossorigin="anonymous"></script>
     
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
@@ -133,8 +132,8 @@ data-assets-path="~/assets/admin/assets"
                         <span class="app-brand-text demo menu-text fw-bolder ms-2">home page</span>
                     </a>
 
-                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
+                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none" aria-label="Collapse menu">
+                        <i class="bx bx-chevron-left bx-sm align-middle" aria-hidden="true"></i>
                     </a>
                 </div>
 
@@ -297,13 +296,15 @@ data-assets-path="~/assets/admin/assets"
     <script src="~/assets/admin/assets/js/dashboards-analytics.js"></script>
 
     <!-- Popup -->
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.js" integrity="sha384-0zm5QqnR2gL4GY5AwreU3xp5AEGWqkdbamrRLeXwWwepp4JqmPRawLJFD8Cm802W" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js" integrity="sha384-OCBhaEdUu7BFgaeRVey2PDeHof2MSQRFe/e6S8Q3XrmSV7wrKpLmhPj8FOldGiaF" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.js" integrity="sha384-VwoO4KYHycI5E2Vzjf4m+IY3C8JKnLhRzzVeR7n4Qdx+Qkq0YUC3aiJ6vY0XVlVT" crossorigin="anonymous"></script>
 
     <!-- jQuery & Bootstrap-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+    <!-- Select2 (needs jQuery, so it must load after it) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
