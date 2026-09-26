@@ -124,3 +124,11 @@ blazor.webassembly.js
 blazorwasm.zip
 publish/
 wwwroot/dist/
+
+# Lockfiles in vendored admin-theme folders (not built or deployed; the app serves the prebuilt assets)
+/template/admin-employer/package-lock.json
+/template/admin-employer/yarn.lock
+/template/admin-employer/pnpm-lock.yaml
+/JobPortal.WebApp/wwwroot/assets/admin/package-lock.json
+/JobPortal.WebApp/wwwroot/assets/admin/yarn.lock
+/JobPortal.WebApp/wwwroot/assets/admin/pnpm-lock.yaml
